@@ -1,0 +1,235 @@
+dist:
+  module: github.com/open-telemetry/opentelemetry-collector-contrib/cmd/otelcontribcol
+  name: otelcontribcol
+  description: Local OpenTelemetry Collector Contrib binary, testing only.
+  version: 0.81.0-dev
+  otelcol_version: 0.81.0
+
+extensions:
+
+exporters:
+  - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/exporter/prometheusremotewriteexporter v0.81.0
+
+processors:
+  - gomod: go.opentelemetry.io/collector/processor/batchprocessor v0.81.0
+  - gomod: go.opentelemetry.io/collector/processor/memorylimiterprocessor v0.81.0
+  - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/processor/attributesprocessor v0.81.0
+
+receivers:
+  - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/hostmetricsreceiver v0.81.0
+
+connectors:
+
+replaces:
+  - github.com/open-telemetry/opentelemetry-collector-contrib/extension/storage => github.com/frzifus/opentelemetry-collector-contrib/extension/storage hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/pkg/batchpersignal => github.com/frzifus/opentelemetry-collector-contrib/pkg/batchpersignal hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/internal/aws/cwlogs => github.com/frzifus/opentelemetry-collector-contrib/internal/aws/cwlogs hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/f5cloudexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/f5cloudexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/internal/common => github.com/frzifus/opentelemetry-collector-contrib/internal/common hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/awsxrayreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/awsxrayreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/azureblobreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/azureblobreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/k8sobjectsreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/k8sobjectsreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/haproxyreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/haproxyreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/httpcheckreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/httpcheckreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/extension/observer/dockerobserver =>  github.com/frzifus/opentelemetry-collector-contrib/extension/observer/dockerobserver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/extension/observer/k8sobserver => github.com/frzifus/opentelemetry-collector-contrib/extension/observer/k8sobserver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/sentryexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/sentryexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/dynatraceexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/dynatraceexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/nsxtreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/nsxtreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/kubeletstatsreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/kubeletstatsreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/dockerstatsreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/googlecloudpubsubexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/googlecloudpubsubexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/awsxrayexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/awsxrayexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/postgresqlreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/postgresqlreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/jaegerexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/jaegerexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/receivercreator => github.com/frzifus/opentelemetry-collector-contrib/receiver/receivercreator hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/processor/k8sattributesprocessor => github.com/frzifus/opentelemetry-collector-contrib/processor/k8sattributesprocessor hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/awsemfexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/awsemfexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/opencensusreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/opencensusreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/splunkhecreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/splunkhecreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/collectdreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/collectdreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/processor/spanprocessor => github.com/frzifus/opentelemetry-collector-contrib/processor/spanprocessor hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/extension/awsproxy => github.com/frzifus/opentelemetry-collector-contrib/extension/awsproxy hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/pkg/translator/zipkin => github.com/frzifus/opentelemetry-collector-contrib/pkg/translator/zipkin hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/processor/groupbyattrsprocessor => github.com/frzifus/opentelemetry-collector-contrib/processor/groupbyattrsprocessor hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/tanzuobservabilityexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/tanzuobservabilityexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/skywalkingexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/skywalkingexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/mezmoexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/mezmoexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/clickhouseexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/clickhouseexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/cassandraexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/cassandraexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/udplogreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/udplogreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/internal/splunk => github.com/frzifus/opentelemetry-collector-contrib/internal/splunk hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/podmanreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/podmanreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/flinkmetricsreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/flinkmetricsreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/awsecscontainermetricsreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/awsecscontainermetricsreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/extension/oidcauthextension => github.com/frzifus/opentelemetry-collector-contrib/extension/oidcauthextension hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/jaegerthrifthttpexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/jaegerthrifthttpexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/awskinesisexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/awskinesisexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/pkg/ottl => github.com/frzifus/opentelemetry-collector-contrib/pkg/ottl hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/nginxreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/nginxreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/couchdbreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/couchdbreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/processor/resourcedetectionprocessor => github.com/frzifus/opentelemetry-collector-contrib/processor/resourcedetectionprocessor hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextension => github.com/frzifus/opentelemetry-collector-contrib/extension/healthcheckextension hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/extension/headerssetterextension => github.com/frzifus/opentelemetry-collector-contrib/extension/headerssetterextension hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/googlemanagedprometheusexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/googlemanagedprometheusexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/aerospikereceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/aerospikereceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/processor/cumulativetodeltaprocessor => github.com/frzifus/opentelemetry-collector-contrib/processor/cumulativetodeltaprocessor hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/sapmreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/sapmreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/zipkinreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/zipkinreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/jaegerreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/jaegerreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/internal/aws/xray => github.com/frzifus/opentelemetry-collector-contrib/internal/aws/xray hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/internal/aws/k8s => github.com/frzifus/opentelemetry-collector-contrib/internal/aws/k8s hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/mysqlreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/mysqlreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/extension/asapauthextension => github.com/frzifus/opentelemetry-collector-contrib/extension/asapauthextension hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/pkg/batchperresourceattr => github.com/frzifus/opentelemetry-collector-contrib/pkg/batchperresourceattr hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/prometheusremotewriteexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/prometheusremotewriteexporter
+  - github.com/open-telemetry/opentelemetry-collector-contrib/processor/servicegraphprocessor => github.com/frzifus/opentelemetry-collector-contrib/processor/servicegraphprocessor hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/processor/groupbytraceprocessor => github.com/frzifus/opentelemetry-collector-contrib/processor/groupbytraceprocessor hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/tencentcloudlogserviceexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/tencentcloudlogserviceexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/loadbalancingexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/loadbalancingexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/logicmonitorexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/logicmonitorexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/azureeventhubreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/azureeventhubreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/azuremonitorreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/azuremonitorreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/jmxreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/jmxreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/awsfirehosereceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/awsfirehosereceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/extension/oauth2clientauthextension => github.com/frzifus/opentelemetry-collector-contrib/extension/oauth2clientauthextension hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/kafkaexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/kafkaexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/extension/observer => github.com/frzifus/opentelemetry-collector-contrib/extension/observer hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/coralogixexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/coralogixexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/tcplogreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/tcplogreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/extension/pprofextension => github.com/frzifus/opentelemetry-collector-contrib/extension/pprofextension hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/pkg/translator/loki => github.com/frzifus/opentelemetry-collector-contrib/pkg/translator/loki hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/internal/aws/metrics => github.com/frzifus/opentelemetry-collector-contrib/internal/aws/metrics hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/journaldreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/journaldreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/logzioexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/logzioexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/internal/coreinternal => github.com/frzifus/opentelemetry-collector-contrib/internal/coreinternal hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/k8seventsreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/k8seventsreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/k8sclusterreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/k8sclusterreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/processor/transformprocessor => github.com/frzifus/opentelemetry-collector-contrib/processor/transformprocessor hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/processor/filterprocessor => github.com/frzifus/opentelemetry-collector-contrib/processor/filterprocessor hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/extension/observer/hostobserver => github.com/frzifus/opentelemetry-collector-contrib/extension/observer/hostobserver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/kafkareceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/kafkareceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/extension/bearertokenauthextension => github.com/frzifus/opentelemetry-collector-contrib/extension/bearertokenauthextension hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/pkg/experimentalmetricmetadata => github.com/frzifus/opentelemetry-collector-contrib/pkg/experimentalmetricmetadata hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/pkg/stanza => github.com/frzifus/opentelemetry-collector-contrib/pkg/stanza hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/fluentforwardreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/fluentforwardreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/redisreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/redisreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/extension/basicauthextension => github.com/frzifus/opentelemetry-collector-contrib/extension/basicauthextension hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/influxdbexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/influxdbexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/alibabacloudlogserviceexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/alibabacloudlogserviceexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/pkg/translator/jaeger => github.com/frzifus/opentelemetry-collector-contrib/pkg/translator/jaeger hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker => github.com/frzifus/opentelemetry-collector-contrib/internal/docker hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/internal/aws/ecsutil => github.com/frzifus/opentelemetry-collector-contrib/internal/aws/ecsutil hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/rabbitmqreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/rabbitmqreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/elasticsearchreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/elasticsearchreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/processor/metricsgenerationprocessor => github.com/frzifus/opentelemetry-collector-contrib/processor/metricsgenerationprocessor hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/processor/attributesprocessor => github.com/frzifus/opentelemetry-collector-contrib/processor/attributesprocessor hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/sqlqueryreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/sqlqueryreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/purefareceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/purefareceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/purefbreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/purefbreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/memcachedreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/memcachedreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/azuremonitorexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/azuremonitorexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/azuredataexplorerexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/azuredataexplorerexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/internal/k8sconfig => github.com/frzifus/opentelemetry-collector-contrib/internal/k8sconfig hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/internal/k8stest => github.com/frzifus/opentelemetry-collector-contrib/internal/k8stest hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/carbonreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/carbonreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/splunkhecexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/splunkhecexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/prometheusexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/prometheusexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/influxdbreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/influxdbreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/awscontainerinsightreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/awscontainerinsightreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/processor/metricstransformprocessor => github.com/frzifus/opentelemetry-collector-contrib/processor/metricstransformprocessor hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/extension/sigv4authextension => github.com/frzifus/opentelemetry-collector-contrib/extension/sigv4authextension hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/pkg/translator/opencensus => github.com/frzifus/opentelemetry-collector-contrib/pkg/translator/opencensus hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/pulsarexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/pulsarexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/zipkinexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/zipkinexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/hostmetricsreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/hostmetricsreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/pkg/translator/signalfx => github.com/frzifus/opentelemetry-collector-contrib/pkg/translator/signalfx hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/signalfxreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/signalfxreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/windowsperfcountersreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/windowsperfcountersreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/simpleprometheusreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/simpleprometheusreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/kafkametricsreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/kafkametricsreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/cloudfoundryreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/cloudfoundryreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/internal/filter => github.com/frzifus/opentelemetry-collector-contrib/internal/filter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/activedirectorydsreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/activedirectorydsreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/processor/spanmetricsprocessor => github.com/frzifus/opentelemetry-collector-contrib/processor/spanmetricsprocessor hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/processor/routingprocessor => github.com/frzifus/opentelemetry-collector-contrib/processor/routingprocessor hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/processor/deltatorateprocessor => github.com/frzifus/opentelemetry-collector-contrib/processor/deltatorateprocessor hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/datadogexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/datadogexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/datasetexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/datasetexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/internal/aws/containerinsight => github.com/frzifus/opentelemetry-collector-contrib/internal/aws/containerinsight hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/internal/aws/awsutil => github.com/frzifus/opentelemetry-collector-contrib/internal/aws/awsutil hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/zookeeperreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/zookeeperreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/wavefrontreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/wavefrontreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/mongodbreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/mongodbreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/pkg/translator/prometheusremotewrite => github.com/frzifus/opentelemetry-collector-contrib/pkg/translator/prometheusremotewrite hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/filelogreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/filelogreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/filereceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/filereceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/signalfxexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/signalfxexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/solacereceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/solacereceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/iisreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/iisreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/bigipreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/bigipreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/processor/probabilisticsamplerprocessor => github.com/frzifus/opentelemetry-collector-contrib/processor/probabilisticsamplerprocessor hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/fileexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/fileexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/pkg/resourcetotelemetry => github.com/frzifus/opentelemetry-collector-contrib/pkg/resourcetotelemetry hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/opencensusexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/opencensusexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/internal/metadataproviders => github.com/frzifus/opentelemetry-collector-contrib/internal/metadataproviders hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/internal/aws/proxy => github.com/frzifus/opentelemetry-collector-contrib/internal/aws/proxy hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/snmpreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/snmpreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/mongodbatlasreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/mongodbatlasreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/awscloudwatchreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/awscloudwatchreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/lokiexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/lokiexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/internal/sharedcomponent => github.com/frzifus/opentelemetry-collector-contrib/internal/sharedcomponent hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/expvarreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/expvarreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/apachereceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/apachereceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/apachesparkreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/apachesparkreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/extension/httpforwarder => github.com/frzifus/opentelemetry-collector-contrib/extension/httpforwarder hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/elasticsearchexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/elasticsearchexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/awscloudwatchlogsexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/awscloudwatchlogsexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/googlecloudspannerreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/googlecloudspannerreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/prometheusreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/prometheusreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/sapmexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/sapmexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/internal/kubelet => github.com/frzifus/opentelemetry-collector-contrib/internal/kubelet hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/sqlserverreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/sqlserverreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/skywalkingreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/skywalkingreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/snowflakereceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/snowflakereceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/riakreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/riakreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/processor/tailsamplingprocessor => github.com/frzifus/opentelemetry-collector-contrib/processor/tailsamplingprocessor hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/syslogreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/syslogreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/processor/resourceprocessor => github.com/frzifus/opentelemetry-collector-contrib/processor/resourceprocessor hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/carbonexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/carbonexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/pkg/winperfcounters => github.com/frzifus/opentelemetry-collector-contrib/pkg/winperfcounters hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/googlecloudexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/googlecloudexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/pkg/translator/prometheus => github.com/frzifus/opentelemetry-collector-contrib/pkg/translator/prometheus hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/googlecloudpubsubreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/googlecloudpubsubreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/sumologicexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/sumologicexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/instanaexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/instanaexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/otlpjsonfilereceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/otlpjsonfilereceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/processor/redactionprocessor => github.com/frzifus/opentelemetry-collector-contrib/processor/redactionprocessor hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/extension/jaegerremotesampling => github.com/frzifus/opentelemetry-collector-contrib/extension/jaegerremotesampling hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/processor/datadogprocessor => github.com/frzifus/opentelemetry-collector-contrib/processor/datadogprocessor hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/sshcheckreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/sshcheckreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/datadogreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/datadogreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/chronyreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/chronyreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/parquetexporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/parquetexporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/extension/observer/ecstaskobserver => github.com/frzifus/opentelemetry-collector-contrib/extension/observer/ecstaskobserver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/lokireceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/lokireceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/filestatsreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/filestatsreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/awss3exporter => github.com/frzifus/opentelemetry-collector-contrib/exporter/awss3exporter hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/pulsarreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/pulsarreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/oracledbreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/oracledbreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/cloudflarereceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/cloudflarereceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/prometheusexecreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/prometheusexecreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/windowseventlogreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/windowseventlogreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/receiver/webhookeventreceiver => github.com/frzifus/opentelemetry-collector-contrib/receiver/webhookeventreceiver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/extension/observer/ecsobserver => github.com/frzifus/opentelemetry-collector-contrib/extension/observer/ecsobserver hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/processor/remoteobserverprocessor => github.com/frzifus/opentelemetry-collector-contrib/processor/remoteobserverprocessor hostmetricsreceiver_rhel_poc
+  # see https://github.com/mattn/go-ieproxy/issues/45
+  - github.com/mattn/go-ieproxy => github.com/mattn/go-ieproxy v0.0.1
+  - github.com/open-telemetry/opentelemetry-collector-contrib/pkg/pdatatest => github.com/frzifus/opentelemetry-collector-contrib/pkg/pdatatest hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/pkg/pdatautil => github.com/frzifus/opentelemetry-collector-contrib/pkg/pdatautil hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/connector/countconnector => github.com/frzifus/opentelemetry-collector-contrib/connector/countconnector hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/connector/routingconnector => github.com/frzifus/opentelemetry-collector-contrib/connector/routingconnector hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/connector/servicegraphconnector => github.com/frzifus/opentelemetry-collector-contrib/connector/servicegraphconnector hostmetricsreceiver_rhel_poc
+  - github.com/open-telemetry/opentelemetry-collector-contrib/connector/spanmetricsconnector => github.com/frzifus/opentelemetry-collector-contrib/connector/spanmetricsconnector hostmetricsreceiver_rhel_poc
+  - github.com/openshift/api v3.9.0+incompatible => github.com/openshift/api v0.0.0-20180801171038-322a19404e37
+  - github.com/outcaste-io/ristretto v0.2.0 => github.com/outcaste-io/ristretto v0.2.1
